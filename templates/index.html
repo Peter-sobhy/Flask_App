@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Contact V4</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="/static/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+
+			
+
+			<form class="contact100-form validate-form" action="/predict" method="post">
+				<span class="contact100-form-title">
+					CONCRETE STRENGTH PREDICTION
+					<p><b>----------------------------------------------</b></p>
+				</span>
+
+				{% if results %}
+					{% for k,v in results.items() %}
+						<p><b>{{ k }} : </b>{{ v }}</p>
+					{% endfor %}
+					<p><b>----------------------------------------------</b></p>
+				{% endif %}
+
+				<div class="wrap-input100 validate-input" data-validate="cement is required">
+					<span class="label-input100">Cement Content</span>
+					<input class="input100" type="text" name="cement" placeholder="Enter Cement Content in Kg/m3">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="furnace_slag is required">
+					<span class="label-input100">Slag Content</span>
+					<input class="input100" type="text" name="furnace_slag" placeholder="Enter furnace_slag Content in Kg/m3">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="fly_ash is required">
+					<span class="label-input100">Fly Ash Content</span>
+					<input class="input100" type="text" name="fly_ash" placeholder="Enter fly_ash Content in Kg/m3">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="water is required">
+					<span class="label-input100">Water Content</span>
+					<input class="input100" type="text" name="water" placeholder="Enter Total Water Content in Kg/m3">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="super_plasticizer is required">
+					<span class="label-input100">Superplasticiser Content</span>
+					<input class="input100" type="text" name="super_plasticizer" placeholder="Enter super_plasticizer Content in Kg/m3">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="coarse_agg is required">
+					<span class="label-input100">Coarse Agg Content</span>
+					<input class="input100" type="text" name="coarse_agg" placeholder="Enter Total coarse_agg Content in Kg/m3">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="fine_agg is required">
+					<span class="label-input100">Fine Agg Content</span>
+					<input class="input100" type="text" name="fine_agg" placeholder="Enter fine_agg Content in Kg/m3">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="age is required">
+					<span class="label-input100">Age</span>
+					<input class="input100" type="text" name="age" placeholder="Enter age in Days">
+					<span class="focus-input100"></span>
+				</div>
+
+
+				<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button class="contact100-form-btn">
+							<span>
+								Predict
+								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+							</span>
+						</button>
+					</div>
+				</div>
+			</form>
+			<p>Thanks for the trial</p>
+			<p><b>----------------------------------------------</b></p>
+			<p>Eng.Peter Sobhy Hanna Shaker</p>
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="/static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/vendor/bootstrap/js/popper.js"></script>
+	<script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/vendor/select2/select2.min.js"></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="/static/vendor/daterangepicker/moment.min.js"></script>
+	<script src="/static/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/js/main.js"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+</body>
+</html>
